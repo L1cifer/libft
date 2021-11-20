@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:58:35 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/06 11:40:22 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/17 23:54:50 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 	while ((str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
 			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
 		i++;
-	while ((str[i] == '+' || str[i] == '-'))
+	if ((str[i] == '+' || str[i] == '-'))
 	{
 		if (str[i] == '-')
 		{

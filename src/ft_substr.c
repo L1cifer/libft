@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 14:44:09 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/15 02:04:59 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/18 15:54:48 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/20 16:28:31 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	char	*sub;
+	size_t	index;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	index = 0;
+	if (!s || len < 0)
+		return (NULL);
+	sub = malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	while (start < ft_strlen(s) && index < len)
+	{ 
+		sub[index] = s[start];
+		index++;
+		start ++;
+	}
+	sub[index] = '\0';
+	return (sub);
 }
+
+/*int main()
+{
+	char *str = "aymane taki";
+	printf("%s",ft_substr(str,0,5));
+}*/

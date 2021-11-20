@@ -6,7 +6,7 @@
 #    By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 21:24:20 by atakeddi          #+#    #+#              #
-#    Updated: 2021/11/12 23:43:35 by atakeddi         ###   ########.fr        #
+#    Updated: 2021/11/20 16:18:47 by atakeddi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,14 @@ SRCS =  ft_bzero.c \
 		ft_strdup.c \
 		ft_atoi.c \
 		ft_calloc.c \
-		
-		
+		ft_split.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:29:43 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/13 00:13:42 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:29:56 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (i < len)
 	{

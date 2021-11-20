@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 19:00:29 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/13 00:07:03 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/14 22:45:41 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	
+
 	ptr = (void *)malloc(count * size);
 	if (!ptr)
 		return (NULL);

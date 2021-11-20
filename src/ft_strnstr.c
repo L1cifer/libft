@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 15:50:26 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/12 21:28:18 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/18 00:16:12 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 		return ((char *)str);
 	}
 	j = 0;
-	while (str[i] && i < len - 1)
+	while (str[i])
 	{
-	j = 0;
-		while (str[i] == to_find[j])
+		j = 0;
+		while (str[i + j] == to_find[j] && i + j < len)
 		{
 			if (to_find[j + 1] == '\0')
 				return (&((char *)str)[i]);
