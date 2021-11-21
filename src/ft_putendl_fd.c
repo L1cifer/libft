@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 15:54:19 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/20 22:27:20 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/20 17:42:06 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/20 18:22:55 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (!s || !f)
+	if (!s)
 		return ;
 	while (s[i])
-	{
-		f(i, s + i);
-		i++;
-	}
+		write (fd, &s[i++], 1);
+	write (fd, "\n", 1);
 }
+
+/*
+#include <fcntl.h>
+int main()
+{
+	int fd ;
+	fd = open("test.txt", O_CREAT | O_RDWR);
+	ft_putendl_fd("can you write this please followed by a new line ",fd);
+}*/

@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 15:54:19 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/20 22:27:20 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/21 18:04:10 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/21 18:24:43 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+t_list *ft_lstnew(void *content)
 {
-	unsigned int	i;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i])
-	{
-		f(i, s + i);
-		i++;
-	}
 }

@@ -6,7 +6,7 @@
 #    By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 21:24:20 by atakeddi          #+#    #+#              #
-#    Updated: 2021/11/20 16:18:47 by atakeddi         ###   ########.fr        #
+#    Updated: 2021/11/21 18:02:07 by atakeddi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,15 @@ SRCS =  ft_bzero.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 
+SRCSB = ft_lstnew.c \
+		
 OBJS = $(SRCS:.c=.o)
+
+OBJSB = $(SRCSB:.c=.o)
 
 %.o: %.c
 	$(CC) $(CC_FLAGS) -c $< -o $@
@@ -57,6 +64,8 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
+bonus : $(OBJSB)
+	$(AR) $@ $^
 
 all: $(NAME)
 

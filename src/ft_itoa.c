@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 21:58:37 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/19 22:54:24 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/21 18:22:13 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/*#include <stdio.h>
-int main()
-{
-	int i = -2147483648 ;
-	
-	printf("%s",ft_itoa(i));
-	
-}*/
