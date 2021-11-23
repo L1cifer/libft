@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 01:13:20 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/20 15:59:46 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:55:04 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 	{
 		return (NULL);
 	}

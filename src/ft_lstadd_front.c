@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 17:32:12 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/22 19:11:15 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/22 01:09:53 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/23 02:26:34 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
+	if (new && lst)
 	{
-		*(char *)(s + i) = 0;
-		i++;
+		(new)->next = *lst;
+		*lst = new;
 	}
 }

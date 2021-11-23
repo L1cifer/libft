@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:54:48 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/20 17:35:15 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/22 22:38:48 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[index] = '\0';
 	return (sub);
 }
-
-/*int main()
-{
-	char *str = "aymane taki";
-	printf("%s",ft_substr(str,0,5));
-}*/

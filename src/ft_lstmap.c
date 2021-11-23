@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 17:32:12 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/22 19:11:15 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/23 02:11:46 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/23 02:12:05 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
+	t_list		*head;
+	t_list		*node;
+	t_list		*temp;
 
-	i = 0;
-	while (i < n)
+	if (!lst)
+		return (NULL);
+	head = NULL;
+	temp = lst;
+	while (temp)
 	{
-		*(char *)(s + i) = 0;
-		i++;
+		node = ft_lstnew(f(temp->content));
+		if (!node)
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&head, node);
+		temp = temp->next;
 	}
+	return (head);
 }

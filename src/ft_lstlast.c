@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 17:32:12 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/22 19:11:15 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/23 01:55:48 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/23 02:23:01 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include"libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
+	while (lst)
 	{
-		*(char *)(s + i) = 0;
-		i++;
+		if (!lst->next)
+		{
+			return (lst);
+		}
+		lst = lst->next;
 	}
+	return (lst);
 }

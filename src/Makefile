@@ -6,7 +6,7 @@
 #    By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 21:24:20 by atakeddi          #+#    #+#              #
-#    Updated: 2021/11/21 18:02:07 by atakeddi         ###   ########.fr        #
+#    Updated: 2021/11/23 02:21:24 by atakeddi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,25 +38,35 @@ SRCS =  ft_bzero.c \
 		ft_strlcat.c \
 		ft_strnstr.c \
 		ft_strdup.c \
-		ft_atoi.c \
-		ft_calloc.c \
-		ft_split.c \
-		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_itoa.c \
 		ft_strmapi.c \
-		ft_striteri.c \
+		ft_substr.c \
+		ft_atoi.c \
+		ft_itoa.c \
+		ft_calloc.c \
+		ft_split.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_striteri.c \
 
-SRCSB = ft_lstnew.c \
-		
+SRCSB =	ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+
+
 OBJS = $(SRCS:.c=.o)
 
 OBJSB = $(SRCSB:.c=.o)
+
 
 %.o: %.c
 	$(CC) $(CC_FLAGS) -c $< -o $@
@@ -64,8 +74,8 @@ OBJSB = $(SRCSB:.c=.o)
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-bonus : $(OBJSB)
-	$(AR) $@ $^
+bonus: $(OBJSB)
+	$(AR) $(NAME) $^
 
 all: $(NAME)
 
