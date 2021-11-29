@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:11:37 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/15 01:10:54 by atakeddi         ###   ########.fr       */
+/*   Updated: 2021/11/26 01:28:51 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	while (s[i])
+	while (s[i] != (char)c)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
+		if (s[i] == '\0')
+			return (NULL);
 		i++;
 	}
-	if (!c && s[i] == '\0')
-		return ((char *)s + i);
-	return (NULL);
+	return ((char *)&s[i]);
 }

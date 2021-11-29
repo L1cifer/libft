@@ -5,86 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 22:44:07 by atakeddi          #+#    #+#             */
-/*   Updated: 2021/11/22 19:46:26 by atakeddi         ###   ########.fr       */
+/*   Created: 2021/11/25 21:18:09 by atakeddi          #+#    #+#             */
+/*   Updated: 2021/11/25 21:19:25 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	clear(char **arr)
+static int	is_sep(char sep, char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
-	free(arr);
+	if (sep == '\0')
+		return (1);
+	else if (c == sep)
+		return (1);
+	return (0);
 }
 
 static int	count_words(char const *str, char c)
 {
-	int	count;
 	int	i;
+	int	words;
 
-	count = 0;
 	i = 0;
+	words = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
-		{
-			i++;
-			continue ;
-		}
-		count++;
-		while (str[i] != c && str[i])
-			i++;
+		if (!is_sep(str[i], c) && \
+				(is_sep(str[i + 1], c) || str[i + 1] == '\0' ))
+			words++;
+		i++;
 	}
-	return (count);
+	return (words);
 }
 
-static char	**fill_array_with_words(char **arr, char const *str, char c)
+static void	ft_copy_word(char *dest, char const *from, char c)
 {
-	int	index;
 	int	i;
-	int	tmp_i;
 
-	index = 0;
 	i = 0;
-	while (str[i])
+	while (!is_sep(from[i], c))
 	{
-		if (str[i] == c)
-		{
-			i++;
-			continue ;
-		}
-		tmp_i = i;
-		while (str[i] != c && str[i])
-			i++;
-		arr[index] = malloc(i - tmp_i + 1);
-		if (!arr[index])
-			return (NULL);
-		ft_strlcpy(arr[index++], str + tmp_i, i - tmp_i + 1);
+		dest[i] = from[i];
+		i++;
 	}
-	arr[index] = NULL;
-	return (arr);
+	dest[i] = '\0';
+}
+
+static int	ft_move_to_tab(char **tab, char const *s, char c)
+{
+	int	i;
+	int	j;
+	int	word;
+
+	word = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (is_sep(s[i], c))
+			i++;
+		else
+		{
+			j = 0;
+			while (!is_sep(s[i + j], c))
+				j++;
+			tab[word] = (char *)malloc(j + 1);
+			if (!tab)
+				return (0);
+			ft_copy_word(tab[word], s + i, c);
+			i = i + j;
+			word++;
+		}
+	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**array;
-	int		words_count;
+	char	**tab;
+	int		word;
+	int		i;
 
+	i = 0;
 	if (!s)
 		return (NULL);
-	words_count = count_words(s, c);
-	array = malloc((words_count + 1) * sizeof(char *));
-	if (!array)
+	word = count_words(s, c);
+	tab = (char **)malloc(sizeof(char *) * (word + 1));
+	if (!tab)
 		return (NULL);
-	if (!fill_array_with_words(array, s, c))
+	tab[word] = 0;
+	if (!ft_move_to_tab(tab, s, c))
 	{
-		clear(array);
-		return (NULL);
+		while (tab[i++])
+		{
+			free(tab[i]);
+		}
+		free(tab);
 	}
-	return (array);
+	return (tab);
 }
